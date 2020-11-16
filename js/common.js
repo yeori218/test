@@ -1,60 +1,60 @@
+// JavaScript Document
+
 $(document).ready(function () {
 
-       $(".dp2").hide();
+    // 맨위로가기 버튼
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            $("#gotop").fadeIn();
+        } else {
+            $("#gotop").fadeOut();
+        }
+    });
 
-        $(".gnb>li").mouseover(function(){
-            $(this).children(".dp2").stop().slideDown();
-        });
-        $(".gnb>li").mouseout(function(){
-            $(this).children(".dp2").stop().slideUp();
-        });
-    $('.visual').bxSlider({
-         auto: true
-     });
+    $("#gotop").click(function () {
+        $("html, body").animate({
+            scrollTop: 0
+        }, "slow");
+        return false;
+    });
+
+
+    // 상단메뉴
+    $(".dp2,.dp2_bg").hide();
+
+    $("#gnb>li").mouseover(function () {
+        $(".dp2,.dp2_bg").stop().slideDown();
+    });
+    $("#gnb>li").mouseout(function () {
+        $(".dp2,.dp2_bg").stop().slideUp();
+    });
+
+
+
+    // 전체메뉴(모달)
+    $(".all_box").hide();
+
+    $(".all_menu").click(function () {
+        $(".all_box").fadeIn();
+    });
+    $(".all_close").click(function () {
+        $(".all_box").fadeOut();
+    });
+
+
+    // 메인슬라이드
+    $(".main_visual").bxSlider({
+        auto: true
+    });
+
+    $(".sns_list").bxSlider({
+        auto: true,
+        pager: false,
+		touchEnabled : false,
+        slideWidth: 240,
+        maxSlides: 5,
+        moveSlides: 1
+    });
     
-    $('.content1_hover').hide();
-     $('.content_1').mouseover(function () {
-         $('.content_1 .content1_hover').stop().fadeIn();
 
-
-     });
-     $('.content_1').mouseout(function () {
-         $('.content1_hover').stop().fadeOut();
-     });
-    
-     $('.content2_hover').hide();
-     $('.content_2').mouseover(function () {
-         $('.content_2 .content2_hover').stop().fadeIn();
-
-
-     });
-     $('.content_2').mouseout(function () {
-         $('.content2_hover').stop().fadeOut();
-     });
-    
-     $('.content3_hover').hide();
-     $('.content_3').mouseover(function () {
-         $('.content_3 .content3_hover').stop().fadeIn();
-
-
-     });
-     $('.content_3').mouseout(function () {
-         $('.content3_hover').stop().fadeOut();
-     });
-    $('.view_slide').bxSlider({
-         auto: true,
-         maxSlides: 5,
-         moveSlides: 1,
-         slideWidth: 240,
-         pager: false
-     });
-    $('#all_box').hide();
-     $('.all_menu').click(function () {
-         $('#all_box').fadeIn();
-
-     });
-
-     $('.close').click(function () {
-         $('#all_box').fadeOut();
-     });
 });
